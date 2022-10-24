@@ -1,17 +1,5 @@
 # Pet Shop App
 
-## Support
-
-https://www.buymeacoffe.com/syarifhidayat
-https://sociabuzz.com/syarifhidayatullah2020/tribe
-
-## UI/UX
-
-https://dribbble.com/shots/15195744-Mop-Petshop-App
-
-## Youtube
-
-https://youtu.be/WifMFYoSvrc
 
 ## Preview
 
