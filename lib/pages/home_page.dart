@@ -26,7 +26,6 @@ class _HomePageState extends State<HomePage> {
   List<ProductModel> dataProduct = [];
   List<IconData> icons = [
     Icons.home_filled,
-    Icons.favorite_border_rounded,
     Icons.chat_outlined,
     Icons.person_outline_rounded
   ];
@@ -81,9 +80,9 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('mop Petshop',
+                  Text('Petshop',
                       style: poppin.copyWith(
-                        fontSize: 20,
+                        fontSize: 25,
                         color: black,
                         fontWeight: FontWeight.bold,
                       )),
@@ -160,7 +159,7 @@ class _HomePageState extends State<HomePage> {
                     dataCategory.length,
                     (index) => Padding(
                           padding: index == 0
-                              ? const EdgeInsets.only(left: 20, right: 20)
+                              ? const EdgeInsets.only(left: 0, right: 250)
                               : const EdgeInsets.only(right: 20),
                           child: GestureDetector(
                             onTap: () {
@@ -329,8 +328,9 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+      
       bottomNavigationBar: ClipRRect(
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(25)),
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
         child: BottomNavigationBar(
             backgroundColor: white,
             selectedItemColor: deepPurple,

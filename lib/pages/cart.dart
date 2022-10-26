@@ -34,7 +34,7 @@ class _CartPageState extends State<CartPage> {
         title: Text(
           'Cart',
           style: poppin.copyWith(
-              fontSize: 18, color: black, fontWeight: FontWeight.w600),
+              fontSize: 20, color: black, fontWeight: FontWeight.w600),
         ),
         centerTitle: true,
       ),
