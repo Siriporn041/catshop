@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
     Icons.chat_outlined,
     Icons.person_outline_rounded
   ];
-
+  
   Future<void> getCategory() async {
     final String response =
         await rootBundle.loadString('assets/json/category.json');
@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Petshop',
+                  Text('Cetshop',
                       style: poppin.copyWith(
                         fontSize: 25,
                         color: black,
@@ -329,42 +329,74 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       
-      bottomNavigationBar: ClipRRect(
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
-        child: BottomNavigationBar(
-            backgroundColor: white,
-            selectedItemColor: deepPurple,
-            unselectedItemColor: grey,
-            elevation: 1,
-            type: BottomNavigationBarType.fixed,
-            onTap: (value) {
-              setState(() {
-                selectedPage = value;
-              });
-            },
-            items: List.generate(
-                icons.length,
-                (index) => BottomNavigationBarItem(
-                    icon: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Icon(
-                          icons[index],
-                          color: selectedPage == index ? deepPurple : grey,
-                        ),
-                        const SizedBox(height: 5),
-                        AnimatedContainer(
-                          duration: const Duration(milliseconds: 500),
-                          width: selectedPage == index ? 15 : 0,
-                          height: selectedPage == index ? 3 : 0,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: deepPurple),
-                        )
-                      ],
+    bottomNavigationBar: Container(
+        height: 60,
+        color: white,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: List.generate(
+              icons.length,
+              (index) => GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedPage = index;
+                      });
+                    },
+                    child: Container(
+                      height: 60,
+                      width: 50,
+                      padding: const EdgeInsets.all(5),
+                      child: Stack(
+                        children: [
+                          SizedBox(
+                            height: 60,
+                            width: 50,
+                            child: Column(
+                              children: [
+                                Icon(
+                                  icons[index],
+                                  color: selectedPage == index
+                                      ? deepPurple
+                                      : black.withOpacity(0.6),
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                selectedPage == index
+                                    ? Container(
+                                        height: 5,
+                                        width: 5,
+                                        decoration: const BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: deepPurple),
+                                      )
+                                    : Container()
+                              ],
+                            ),
+                          ),
+                          index == 1                      
+                              ? Positioned(
+                                  right: 0,
+                                  top: -5,
+                                  child: Container(
+                                      padding: const EdgeInsets.all(6),
+                                      decoration: const BoxDecoration(
+                                          shape: BoxShape.circle, color: deepPurple),
+                                      child: Text(
+                                        '${cartProvider.carts.length}',
+                                        style: poppin.copyWith(
+                                          color: white
+                                        ),
+                                      )),
+                                )
+                              : Container()                            
+                        ],
+                      ),
                     ),
-                    label: ''))),
+                  )),
+        ),
       ),
+
     );
   }
 }
